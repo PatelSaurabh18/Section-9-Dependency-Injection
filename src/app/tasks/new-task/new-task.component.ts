@@ -33,7 +33,7 @@ export class NewTaskComponent {
 
 
   onAddTask(title: string, description: string) {
-    this.taskService.addTask({title,description});
+    this.tasksService.addTask({title,description});
     this.formEl()?.nativeElement.reset();
   }
 }
