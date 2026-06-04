@@ -1,6 +1,7 @@
-import { Component, ElementRef, inject, viewChild } from '@angular/core';
+import { Component, ElementRef, Inject, inject, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TasksService } from '../tasks.service';
+import { TasksServiceToken } from '../../../main';
 
 @Component({
   selector: 'app-new-task',
@@ -18,12 +19,12 @@ export class NewTaskComponent {
         this.taskService =  tasksService;
     }
   */
- /*
-    constructor(private tasksService : TasksService){
-    }
-  */
 
-  private tasksService : TasksService = inject(TasksService);
+    constructor(@Inject(TasksServiceToken) private tasksService : TasksService){
+    }
+  
+
+  // private tasksService  = inject(TasksServiceToken);
 
   /*
     This is the way of Dependency Injection, in this in each class no new instance will be created. We give this job to Angular so that it creates object that is shared across all classes and for each class no neew instance is craeated, rather shared instance is created across all classes
